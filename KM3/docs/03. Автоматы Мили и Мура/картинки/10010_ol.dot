@@ -1,0 +1,30 @@
+strict digraph {
+    rankdir = "LR"
+    center = "True"
+
+
+    node [shape=circle]
+    0 [label=S0]
+    1 [label=S1]
+    2 [label=S2]
+    3 [label=S3]
+    4 [label=S4]
+
+    // Штатные
+    0 -> 1 [label=" 1/0" color="green"]
+    1 -> 2 [label=" 0/0" color="green"]
+    2 -> 3 [label=" 0/0" color="green"]
+    3 -> 4 [label=" 1/1" color="green"]
+
+    //Ошибочный ноль всегда возвращает в A
+    0 -> 0 [label=" 0/0" color="red"]
+    3 -> 0 [label=" 0/0" color="red"]
+
+    // Ошибочная единица всегда возвращает в B
+    1 -> 1 [label=" 1/0" color="orange"]    
+    4 -> 1 [label=" 1/0" color="orange"]
+    
+    // Перекрытие
+    2 -> 1 [label=" 1/0" color="blue"]
+    4 -> 2 [label=" 0/1" color="blue"]
+} 
