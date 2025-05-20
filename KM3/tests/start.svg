@@ -1,0 +1,28 @@
+---
+TestFsm
+---
+stateDiagram-v2
+  direction LR
+  classDef s_default fill:white,color:black
+  classDef s_inactive fill:white,color:black
+  classDef s_parallel color:black,fill:white
+  classDef s_active color:red,fill:darksalmon
+  classDef s_previous color:blue,fill:azure
+  
+  state "Start" as Start
+  Class Start s_active
+  state "Position1" as Position1
+  Class Position1 s_default
+  state "Position2" as Position2
+  Class Position2 s_default
+  state "Position3" as Position3
+  Class Position3 s_default
+  state "End" as End
+  Class End s_default
+  
+  Start --> Position1: Position1
+  Start --> Position2: Position2
+  Start --> Position3: Position3
+  Position1, Position2, Position3 --> Start: reset
+  Position1, Position2, Position3 --> Position1, Position2, Position3: hold
+  [*] --> Start

@@ -6,7 +6,7 @@ from cocotb.result import TestFailure
 
 @cocotb.test()
 async def test_dff(dut):
-    """Testing counter for reset and counting"""
+    """Testing dff for reset """
 
     clock = Clock(dut.c, 10, units="ns")
     cocotb.start_soon(clock.start())
@@ -25,5 +25,4 @@ async def test_dff(dut):
     await RisingEdge(dut.c)
 
     assert dut.q.value == dut.d.value, f"Reset failure {dut.q.value} != {dut.d.value}"
-
 
