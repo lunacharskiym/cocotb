@@ -174,3 +174,5 @@ cython_debug/
 .pypirc
 
 sim_build
+
+KM3/docs
