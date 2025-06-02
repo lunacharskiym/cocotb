@@ -238,4 +238,4 @@ always @ (state)
      end // always @ (state,req2,req1)
 
 
-endmodule // arbiter
+endmodule // arbite

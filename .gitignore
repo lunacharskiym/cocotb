@@ -176,3 +176,4 @@ cython_debug/
 sim_build
 
 KM3/docs
+results.xml

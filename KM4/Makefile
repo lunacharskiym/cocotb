@@ -2,11 +2,13 @@ SIM ?= icarus
 
 TOPLEVEL_LANG ?= verilog
 
-VERILOG_SOURCES ?= rtl/osu035_stdcells.v
+VERILOG_DIRS = ./rtl
+RTL_FILEPATHS = $(foreach d, $(VERILOG_DIRS), $(wildcard $(addprefix $(d)/*,*.v)))
+VERILOG_SOURCES += $(RTL_FILEPATHS)
 
-TOPLEVEL ?= base_bus
+TOPLEVEL ?= Bus 
 
-MODULE ?= test_base_bus
+MODULE ?= test_m2  
 
 export PYTHONPATH=$(shell pwd)/tests
 
